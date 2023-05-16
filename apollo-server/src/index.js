@@ -1,20 +1,7 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import gql from "graphql-tag";
-
-// GraphQL Schema
-const typeDefs = gql`
-  type Query {
-    hello(name: String): String
-  }
-`;
-
-// GraphQL Resolvers
-const resolvers = {
-  Query: {
-    hello: (_, { name }) => `Hello ${name}`,
-  },
-};
+import { typeDefs } from "./models/typeDefs.js";
+import { resolvers } from "./resolvers.js";
 
 const server = new ApolloServer({ typeDefs, resolvers }); // typeDefs are graphql schemas / resolver is like implementation of that schema
 
