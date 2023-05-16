@@ -5,14 +5,14 @@ import gql from "graphql-tag";
 // GraphQL Schema
 const typeDefs = gql`
   type Query {
-    hello: String
+    hello(name: String): String
   }
 `;
 
 // GraphQL Resolvers
 const resolvers = {
   Query: {
-    hello: () => "Hello from Apollo Server",
+    hello: (_, { name }) => `Hello ${name}`,
   },
 };
 
