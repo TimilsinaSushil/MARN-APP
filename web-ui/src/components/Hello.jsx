@@ -1,13 +1,15 @@
 import { gql, useQuery } from "@apollo/client";
 
 const HELLO_QUERY = gql`
-  query Query {
-    hello
+  query SampleQuery($name: String) {
+    hello(name: $name)
   }
 `;
 
 export default function Hello() {
-  const { data, loading, error } = useQuery(HELLO_QUERY);
+  const { data, loading, error } = useQuery(HELLO_QUERY, {
+    variables: { name: "Sushil" },
+  });
 
   if (loading) return <div>Loading....</div>;
 
