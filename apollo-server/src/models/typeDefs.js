@@ -7,8 +7,12 @@ export const typeDefs = gql`
     books: [Book]
   }
   type Book {
-    id:ID,
-    title: String,
+    id: ID
+    title: String
     year: Int
+  }
+
+  type Mutation {
+    create(title: String, year: Int): Book
   }
 `;

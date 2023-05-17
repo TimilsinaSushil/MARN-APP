@@ -2,6 +2,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Hello from "./components/Hello";
 import Books from "./components/Books";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import CreateBook from "./components/CreateBook";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000",
@@ -20,12 +21,17 @@ function App() {
             <Link to="/books" className="nav-link mr-2">
               Books
             </Link>
+            <Link to="/books/create" className="nav-link mr-2">
+              Create
+            </Link>
+            
           </div>
         </nav>
         <div className="container mt-5">
           <Routes>
             <Route path="/" element={<Hello />} />
             <Route path="/books" element={<Books />} />
+            <Route path="/books/create" element={<CreateBook />} />
           </Routes>
         </div>
       </BrowserRouter>
