@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 
 const HELLO_QUERY = gql`
-  query SampleQuery($name: String) {
+  query Query($name: String) {
     hello(name: $name)
   }
 `;
