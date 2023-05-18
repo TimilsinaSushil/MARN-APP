@@ -19,3 +19,19 @@ export const BOOKS_QUERY = gql`
     }
   }
 `;
+
+export const DELETE_BOOK_MUTATION = gql`
+  mutation Mutation($id: ID) {
+    delete(id: $id)
+  }
+`;
+
+export const EDIT_BOOK_MUTATION = gql`
+  mutation Edit($editId: ID, $title: String, $year: Int) {
+    edit(id: $editId, title: $title, year: $year) {
+      id
+      title
+      year
+    }
+  }
+`;
